@@ -1,6 +1,10 @@
 package modernart.labs.course.modernart;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -26,6 +31,8 @@ public class ModernArtActivity extends ActionBarActivity {
     private int rightUpColor = Color.argb(alpha, 153, colorChange, 0);
     private int rightMidColor = Color.argb(alpha, 255, 255, 255);
     private int rightDownColor = Color.argb(alpha, colorChange, 76, 153);
+
+    private DialogFragment mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,12 +93,38 @@ public class ModernArtActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.more_information) {
+            LayoutInflater layoutInflater = LayoutInflater.from(this);
+            View promptView = layoutInflater.inflate(R.layout.alert_dialog_fragment, null);
+            final AlertDialog alertD = new AlertDialog.Builder(this).create();
+
+
+            Button notButton = (Button) promptView.findViewById(R.id.not_button);
+            Button momaButton = (Button) promptView.findViewById(R.id.moma_button);
+
+            momaButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+
+
+                }
+            });
+
+            notButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    alertD.dismiss();
+                }
+            });
+
+            alertD.setView(promptView);
+            alertD.show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
 
 
