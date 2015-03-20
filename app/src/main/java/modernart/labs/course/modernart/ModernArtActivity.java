@@ -19,6 +19,13 @@ import android.widget.TextView;
 
 public class ModernArtActivity extends ActionBarActivity {
 
+    private int alpha = 122;
+    private int leftUpColor = Color.argb(alpha, 102, 102, 255);
+    private int leftDownColor = Color.argb(alpha, 255, 102, 178);
+    private int rightUpColor = Color.argb(alpha, 153, 0, 0);
+    private int rightMidColor = Color.argb(alpha, 255, 255, 255);
+    private int rightDownColor = Color.argb(alpha, 0, 76, 153);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +39,11 @@ public class ModernArtActivity extends ActionBarActivity {
 
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 
-        leftUpTile.setBackgroundColor(Color.BLUE);
-        leftDownTile.setBackgroundColor(Color.RED);
-        rightUpTile.setBackgroundColor(Color.YELLOW);
-        rightMidTile.setBackgroundColor(Color.MAGENTA);
-        rightDownTile.setBackgroundColor(Color.GREEN);
+        leftUpTile.setBackgroundColor(leftUpColor);
+        leftDownTile.setBackgroundColor(leftDownColor);
+        rightUpTile.setBackgroundColor(rightUpColor);
+        rightMidTile.setBackgroundColor(rightMidColor);
+        rightDownTile.setBackgroundColor(rightDownColor);
 
 
 
