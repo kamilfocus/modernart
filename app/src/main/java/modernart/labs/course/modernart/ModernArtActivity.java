@@ -19,23 +19,24 @@ import android.widget.TextView;
 
 public class ModernArtActivity extends ActionBarActivity {
 
-    private int alpha = 122;
-    private int leftUpColor = Color.argb(alpha, 102, 102, 255);
-    private int leftDownColor = Color.argb(alpha, 255, 102, 178);
-    private int rightUpColor = Color.argb(alpha, 153, 0, 0);
+    private int alpha = 200;
+    private int colorChange = 0;
+    private int leftUpColor = Color.argb(alpha, colorChange, 125, 255);
+    private int leftDownColor = Color.argb(alpha, 255, colorChange, 125);
+    private int rightUpColor = Color.argb(alpha, 153, colorChange, 0);
     private int rightMidColor = Color.argb(alpha, 255, 255, 255);
-    private int rightDownColor = Color.argb(alpha, 0, 76, 153);
+    private int rightDownColor = Color.argb(alpha, colorChange, 76, 153);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modern_art);
 
-        SurfaceView leftUpTile = (SurfaceView) findViewById(R.id.leftUpTile);
-        SurfaceView leftDownTile = (SurfaceView) findViewById(R.id.leftDownTile);
-        SurfaceView rightUpTile = (SurfaceView) findViewById(R.id.rightUpTile);
-        SurfaceView rightMidTile = (SurfaceView) findViewById(R.id.rightMidTile);
-        SurfaceView rightDownTile = (SurfaceView) findViewById(R.id.rightDownTile);
+        final SurfaceView leftUpTile = (SurfaceView) findViewById(R.id.leftUpTile);
+        final SurfaceView leftDownTile = (SurfaceView) findViewById(R.id.leftDownTile);
+        final SurfaceView rightUpTile = (SurfaceView) findViewById(R.id.rightUpTile);
+        final SurfaceView rightMidTile = (SurfaceView) findViewById(R.id.rightMidTile);
+        final SurfaceView rightDownTile = (SurfaceView) findViewById(R.id.rightDownTile);
 
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 
@@ -45,7 +46,26 @@ public class ModernArtActivity extends ActionBarActivity {
         rightMidTile.setBackgroundColor(rightMidColor);
         rightDownTile.setBackgroundColor(rightDownColor);
 
+        seekBar.setOnSeekBarChangeListener( new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                leftUpTile.setBackgroundColor(Color.argb(alpha, progresValue, 125, 255));
+                leftDownTile.setBackgroundColor(Color.argb(alpha, 255, progresValue, 125));
+                rightUpTile.setBackgroundColor(Color.argb(alpha, 153, progresValue, 0));
+                rightMidTile.setBackgroundColor(Color.argb(alpha, 255, 255, 255));
+                rightDownTile.setBackgroundColor(Color.argb(alpha, progresValue, 76, 153));
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
     }
 
