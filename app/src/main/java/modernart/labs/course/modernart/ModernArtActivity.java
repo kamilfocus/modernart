@@ -8,6 +8,8 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Bundle;
@@ -52,7 +54,6 @@ public class ModernArtActivity extends Activity {
         final SurfaceView rightDownTile = (SurfaceView) findViewById(R.id.rightDownTile);
 
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
-
 
         leftUpTile.setBackgroundColor(leftUpColor);
         leftDownTile.setBackgroundColor(leftDownColor);
