@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c8004c99"
+
     android:weightSum="5">
 
     <TextView
@@ -12,17 +12,22 @@
         android:id="@+id/textView"
         android:layout_weight="3"
         android:textColor="#ffffffff"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:background="#c8004c99"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:text="Click below to learn more"
         android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:textColor="#ffffffff"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:background="#c8004c99"
+        android:gravity="center" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -31,7 +36,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:weightSum="2"
-        android:background="#c8004c99"
+
         >
 
         <Button

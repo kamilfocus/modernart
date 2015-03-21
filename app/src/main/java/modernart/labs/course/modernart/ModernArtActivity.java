@@ -1,14 +1,18 @@
 package modernart.labs.course.modernart;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+//import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -22,7 +26,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 
-public class ModernArtActivity extends ActionBarActivity {
+public class ModernArtActivity extends Activity {
 
     private int alpha = 200;
     private int colorChange = 0;
@@ -32,12 +36,14 @@ public class ModernArtActivity extends ActionBarActivity {
     private int rightMidColor = Color.argb(alpha, 255, 255, 255);
     private int rightDownColor = Color.argb(alpha, colorChange, 76, 153);
 
-    private DialogFragment mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modern_art);
+
+      // ActionBar bar = getActionBar();
+       //bar.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
 
         final SurfaceView leftUpTile = (SurfaceView) findViewById(R.id.leftUpTile);
         final SurfaceView leftDownTile = (SurfaceView) findViewById(R.id.leftDownTile);
@@ -46,6 +52,7 @@ public class ModernArtActivity extends ActionBarActivity {
         final SurfaceView rightDownTile = (SurfaceView) findViewById(R.id.rightDownTile);
 
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+
 
         leftUpTile.setBackgroundColor(leftUpColor);
         leftDownTile.setBackgroundColor(leftDownColor);
@@ -82,6 +89,7 @@ public class ModernArtActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_modern_art, menu);
+
         return true;
     }
 
@@ -97,7 +105,7 @@ public class ModernArtActivity extends ActionBarActivity {
             LayoutInflater layoutInflater = LayoutInflater.from(this);
             View promptView = layoutInflater.inflate(R.layout.alert_dialog_fragment, null);
             final AlertDialog alertD = new AlertDialog.Builder(this).create();
-
+            //final AlertDialog alertD = new AlertDialog.Builder(this, R.style.ThemeDialogCustom).create();
 
             Button notButton = (Button) promptView.findViewById(R.id.not_button);
             Button momaButton = (Button) promptView.findViewById(R.id.moma_button);
