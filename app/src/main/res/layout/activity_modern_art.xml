@@ -99,6 +99,8 @@
             android:id="@+id/seekBar"
             android:max="255"
             android:progress="0"
+            android:minHeight ="100dp"
+            android:maxHeight ="100dp"
             android:progressDrawable="@drawable/red_scrubber_progress"
             android:thumb="@drawable/red_scrubber_control"
             />
