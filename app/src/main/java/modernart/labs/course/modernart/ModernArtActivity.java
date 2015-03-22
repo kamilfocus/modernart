@@ -7,10 +7,12 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Bundle;
 //import android.support.v7.app.ActionBarActivity;
@@ -38,6 +40,7 @@ public class ModernArtActivity extends Activity {
     private int rightMidColor = Color.argb(alpha, 255, 255, 255);
     private int rightDownColor = Color.argb(alpha, colorChange, 76, 153);
 
+    static private final String URL = "http://www.moma.org/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,8 +116,8 @@ public class ModernArtActivity extends Activity {
 
             momaButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-
-
+                    Intent baseIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
+                    startActivity(baseIntent);
 
                 }
             });
